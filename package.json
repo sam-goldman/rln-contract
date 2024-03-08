@@ -29,6 +29,7 @@
     "prettier:write": "prettier --write **/*.{json,md,yml} --ignore-path=.prettierignore"
   },
   "dependencies": {
+    "@sphinx-labs/plugins": "^0.30.3",
     "@zk-kit/imt.sol": "2.0.0-beta",
     "poseidon-solidity": "^0.0.5"
   }

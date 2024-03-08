@@ -2,8 +2,9 @@
 pragma solidity >=0.8.19;
 
 import { Script } from "forge-std/Script.sol";
+import { Sphinx } from "@sphinx-labs/contracts/SphinxPlugin.sol";
 
-abstract contract BaseScript is Script {
+abstract contract BaseScript is Script, Sphinx {
     /// @dev Included to enable compilation of the script without a $MNEMONIC environment variable.
     string internal constant TEST_MNEMONIC = "test test test test test test test test test test test junk";
 
@@ -37,5 +38,12 @@ abstract contract BaseScript is Script {
         vm.startBroadcast(broadcaster);
         _;
         vm.stopBroadcast();
+    }
+
+    function configureSphinx() public override {
+        sphinxConfig.owners = [<YOUR_EOA>];
+        sphinxConfig.orgId = <YOUR_SPHINX_ORG_ID>;
+        sphinxConfig.projectName = "RLN";
+        sphinxConfig.threshold = 1;
     }
 }
