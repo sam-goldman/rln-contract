@@ -10,11 +10,11 @@ contract Deploy is BaseScript {
     function run() public returns (Rln rln, DeploymentConfig deploymentConfig) {
         deploymentConfig = new DeploymentConfig(broadcaster);
 
-        vm.startBroadcast(broadcaster);
+        vm.startPrank(safeAddress());
         // step 1: deploy the verifier
         Verifier verifier = new Verifier();
         // step 2: deploy the rln contract
         rln = new Rln(0, 20, 20, address(verifier));
-        vm.stopBroadcast();
+        vm.stopPrank();
     }
 }

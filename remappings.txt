@@ -1,3 +1,4 @@
 forge-std/=lib/forge-std/src/
 @zk-kit/imt.sol/=node_modules/@zk-kit/imt.sol/
 poseidon-solidity/=node_modules/poseidon-solidity/
+@sphinx-labs/contracts/=lib/sphinx/packages/contracts/contracts/foundry
